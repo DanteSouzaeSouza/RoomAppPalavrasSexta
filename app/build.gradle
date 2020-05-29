@@ -37,11 +37,9 @@ dependencies {
     implementation "androidx.room:room-runtime:$rootProject.roomVersion"
     annotationProcessor "androidx.room:room-compiler:$rootProject.roomVersion"
     androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
-
     // Componentes do Ciclo de vida da aplicação
     implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.archLifecycleVersion"
     annotationProcessor "androidx.lifecycle:lifecycle-extensions:$rootProject.archLifecycleVersion"
-
     // Interface de Usuário
     implementation "com.google.android.material:material:$rootProject.materialVersion"
 
