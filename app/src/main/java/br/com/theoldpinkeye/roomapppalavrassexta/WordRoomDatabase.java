@@ -7,6 +7,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 // Classe responsável por criar uma instância da Base de dados
+// abstract só permite chamar essa classe uma vez
 public abstract class WordRoomDatabase extends RoomDatabase {
 
   public abstract WordDao wordDao();
