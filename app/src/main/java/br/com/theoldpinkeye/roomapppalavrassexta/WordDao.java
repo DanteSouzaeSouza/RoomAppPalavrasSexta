@@ -1,5 +1,6 @@
 package br.com.theoldpinkeye.roomapppalavrassexta;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
@@ -22,5 +23,6 @@ public interface WordDao {
 
   // Seleciona os dados em ordem alfabética
   @Query("SELECT * FROM word_table ORDER BY word ASC")
-  List<Word> getAlphabetizedWords();
+  LiveData<List<Word>> getAlphabetizedWords(); // Transforma essa lista de palavras em LiveData pra que ela
+                                               // esteja disponível constantemente e seja capturável pelo Observer
 }
