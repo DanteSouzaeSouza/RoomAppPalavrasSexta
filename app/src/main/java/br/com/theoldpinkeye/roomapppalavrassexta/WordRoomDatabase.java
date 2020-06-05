@@ -1,13 +1,16 @@
 package br.com.theoldpinkeye.roomapppalavrassexta;
 
 import android.content.Context;
+import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import br.com.theoldpinkeye.roomapppalavrassexta.model.Word;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 // Classe responsável por criar uma instância da Base de dados
-// abstract só permite chamar essa classe uma vez
+// abstract só permite chamar essa classe uma vez (classe singleton)
+@Database(entities = {Word.class}, version = 1, exportSchema = false)
 public abstract class WordRoomDatabase extends RoomDatabase {
 
   public abstract WordDao wordDao();
@@ -19,12 +22,13 @@ public abstract class WordRoomDatabase extends RoomDatabase {
   // instanciando um ExecutorService que vai fornecer as threads para nós
   static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
-  // Construindo a isntância da base de dados
+  // Construindo a isntância da base de dados passando o contexto da aplicação
   static WordRoomDatabase getDatabase(final Context context){
     // checa se a INSTANCE está vazia
     if (INSTANCE == null){
       // cria uma base de dados de forma síncrona caso INSTANCE esteja vazia
       synchronized (WordRoomDatabase.class){
+        // se ainda assim a instance estiver vazia:
         if (INSTANCE == null) {
           // alimentando a INSTANCE com o Context da aplicação, a classe modelo da Base de dados
           // e o nome dessa Base dados
