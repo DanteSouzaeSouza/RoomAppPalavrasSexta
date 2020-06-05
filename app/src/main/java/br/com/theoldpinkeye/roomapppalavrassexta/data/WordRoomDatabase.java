@@ -1,4 +1,4 @@
-package br.com.theoldpinkeye.roomapppalavrassexta;
+package br.com.theoldpinkeye.roomapppalavrassexta.data;
 
 import android.content.Context;
 import androidx.room.Database;

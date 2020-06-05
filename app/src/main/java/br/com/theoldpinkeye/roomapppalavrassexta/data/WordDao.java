@@ -1,4 +1,4 @@
-package br.com.theoldpinkeye.roomapppalavrassexta;
+package br.com.theoldpinkeye.roomapppalavrassexta.data;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
