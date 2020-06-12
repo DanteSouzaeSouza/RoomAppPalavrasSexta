@@ -16,6 +16,7 @@ import java.util.concurrent.Executors;
 @Database(entities = {Word.class}, version = 1, exportSchema = false)
 public abstract class WordRoomDatabase extends RoomDatabase {
 
+  public abstract WordDao wordDao();
   // definindo quantas threads usaremos - numero imutável (final)
   public static final int NUMBER_OF_THREADS = 4;
   // instanciando um ExecutorService que vai fornecer as threads para nós
@@ -64,5 +65,5 @@ public abstract class WordRoomDatabase extends RoomDatabase {
     return INSTANCE;
   }
 
-  public abstract WordDao wordDao();
+
 }
