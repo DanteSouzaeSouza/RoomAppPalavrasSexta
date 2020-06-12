@@ -23,16 +23,15 @@ public abstract class WordRoomDatabase extends RoomDatabase {
       Executors.newFixedThreadPool(NUMBER_OF_THREADS);
   // Objeto WordRoomDatabase que é único (static) e permite ter seus valores alterados (volatile)
   public static volatile WordRoomDatabase INSTANCE;
+
   private static RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
     @Override
     public void onOpen(@NonNull SupportSQLiteDatabase db) {
       super.onOpen(db);
       Log.d("Eu aqui ó", "É memo?");
-      // If you want to keep data through app restarts,
-      // comment out the following block
+
       databaseWriteExecutor.execute(() -> {
-        // Populate the database in the background.
-        // If you want to start with more words, just add them.
+
         WordDao dao = INSTANCE.wordDao();
         dao.deleteAll();
 
