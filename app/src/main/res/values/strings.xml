@@ -1,5 +1,8 @@
 <resources>
-  <string name="app_name">RoomAppPalavrasSexta</string>
+  <string name="app_name">Room App Palavras</string>
   <string name="add_word">Add Word</string>
   <string name="no_word">No Word!</string>
+  <string name="empty_not_saved">Não há palavra a salvar!</string>
+  <string name="hint_word">Palavra…</string>
+  <string name="button_save">Salvar!</string>
 </resources>

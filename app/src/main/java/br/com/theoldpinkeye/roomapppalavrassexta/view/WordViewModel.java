@@ -26,7 +26,7 @@ public class WordViewModel extends AndroidViewModel {
   }
 
   // esse método retorna uma lista de palavras em cache
-  LiveData<List<Word>> getAllWords() {
+  public LiveData<List<Word>> getAllWords() {
     return mAllWords;
   }
 

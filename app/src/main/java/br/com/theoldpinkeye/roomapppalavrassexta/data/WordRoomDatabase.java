@@ -25,17 +25,23 @@ public abstract class WordRoomDatabase extends RoomDatabase {
   // Objeto WordRoomDatabase que é único (static) e permite ter seus valores alterados (volatile)
   public static volatile WordRoomDatabase INSTANCE;
 
+
+  //~Esse método adiciona automaticamente palavras ao banco de dados
   private static RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
     @Override
     public void onOpen(@NonNull SupportSQLiteDatabase db) {
       super.onOpen(db);
       Log.d("Eu aqui ó", "É memo?");
 
+      // chamando o Executr e pedindo:
       databaseWriteExecutor.execute(() -> {
 
+        // receber a instância do dao de dentro da Base de dados atual
         WordDao dao = INSTANCE.wordDao();
+        // limpando a tabela
         dao.deleteAll();
 
+        // mandando adicionar novas palavras
         Word word = new Word("Hello");
         dao.insert(word);
         word = new Word("World");
@@ -56,7 +62,7 @@ public abstract class WordRoomDatabase extends RoomDatabase {
           // e o nome dessa Base dados
           INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
               WordRoomDatabase.class, "word_database")
-              .addCallback(sRoomDatabaseCallback)
+              .addCallback(sRoomDatabaseCallback) // esse callback rodará quando for feito build da base de dados
               .build();
         }
       }
