@@ -24,6 +24,6 @@ public class Word {
 
   // método get
   public String getWord() {
-    return mWord;
+    return this.mWord;
   }
 }

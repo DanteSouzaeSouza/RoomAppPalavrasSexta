@@ -1,8 +1,9 @@
 <resources>
   <string name="app_name">Room App Palavras</string>
-  <string name="add_word">Add Word</string>
-  <string name="no_word">No Word!</string>
+  <string name="add_word">Adicionar palavra</string>
+  <string name="no_word">Não há palavras salvas.</string>
   <string name="empty_not_saved">Não há palavra a salvar!</string>
-  <string name="hint_word">Palavra…</string>
+  <string name="hint_word">Digite uma palavra…</string>
   <string name="button_save">Salvar!</string>
+  <string name="action_settings">Settings</string>
 </resources>

@@ -17,13 +17,16 @@ import java.util.concurrent.Executors;
 public abstract class WordRoomDatabase extends RoomDatabase {
 
   public abstract WordDao wordDao();
+
+  // Objeto WordRoomDatabase que é único (static) e permite ter seus valores alterados (volatile)
+  public static volatile WordRoomDatabase INSTANCE;
+
   // definindo quantas threads usaremos - numero imutável (final)
   public static final int NUMBER_OF_THREADS = 4;
   // instanciando um ExecutorService que vai fornecer as threads para nós
   static final ExecutorService databaseWriteExecutor =
       Executors.newFixedThreadPool(NUMBER_OF_THREADS);
-  // Objeto WordRoomDatabase que é único (static) e permite ter seus valores alterados (volatile)
-  public static volatile WordRoomDatabase INSTANCE;
+
 
 
   //~Esse método adiciona automaticamente palavras ao banco de dados

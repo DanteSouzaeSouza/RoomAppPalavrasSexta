@@ -31,7 +31,7 @@ public class WordRepository {
   // será chamado também numa thread diferente que não travará o app
   // quem garante isso é o Room
   public void insert(Word word){
-    mWordDao.insert(word);
+    WordRoomDatabase.databaseWriteExecutor.execute(() -> mWordDao.insert(word));
   }
 
   // Importante: Se o app por fechado à força no Background pelo sistema, o ViewModel não sobrevive

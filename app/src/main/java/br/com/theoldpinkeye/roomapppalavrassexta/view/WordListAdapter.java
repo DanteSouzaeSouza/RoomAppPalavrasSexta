@@ -27,7 +27,6 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
     mInflater = LayoutInflater.from(context);
   }
 
-  @NonNull
   @Override // passa o layout do item para o recyclerview
   public WordViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
     View itemView = mInflater.inflate(R.layout.recyclerview_item, parent, false);

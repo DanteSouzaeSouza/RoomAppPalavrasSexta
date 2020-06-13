@@ -22,18 +22,16 @@ public class NewWordActivity extends AppCompatActivity {
     final Button button = findViewById(R.id.button_save);
 
     // adicionando um método onClickListener ao botão
-    button.setOnClickListener(v -> {
+    button.setOnClickListener(view -> {
       // criando intent de retorno
-      Intent replyIntent = new Intent(NewWordActivity.this, MainActivity.class);
+      Intent replyIntent = new Intent();
       // se nenhuma palavra foi digitada, envia informação que não há palavra a salvar
       if (TextUtils.isEmpty(mEditWordView.getText())){
         setResult(RESULT_CANCELED, replyIntent);
-        startActivityForResult(replyIntent, RESULT_CANCELED);
       } else { // caso contrário,  envia a palavra digitada no intent e finaliza a activity
         String word = mEditWordView.getText().toString();
         replyIntent.putExtra(EXTRA_REPLY, word);
         setResult(RESULT_OK, replyIntent);
-        startActivityForResult(replyIntent, RESULT_OK);
       }
       finish();
     });
