@@ -27,14 +27,15 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
     mInflater = LayoutInflater.from(context);
   }
 
+  @NonNull
   @Override // passa o layout do item para o recyclerview
-  public WordViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+  public WordViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
     View itemView = mInflater.inflate(R.layout.recyclerview_item, parent, false);
     return new WordViewHolder(itemView);
   }
 
   @Override // esse método faz o binding dos dados
-  public void onBindViewHolder(WordViewHolder holder, int position) {
+  public void onBindViewHolder(@NonNull WordViewHolder holder, int position) {
     // caso haja palavras na lista:
     if (mWords != null) {
       // preenche um card com uma palavra
@@ -56,7 +57,7 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
     return mWords != null ? mWords.size() : 0;
   }
 
-  class WordViewHolder extends RecyclerView.ViewHolder {
+  static class WordViewHolder extends RecyclerView.ViewHolder {
 
     private final TextView wordItemView;
 

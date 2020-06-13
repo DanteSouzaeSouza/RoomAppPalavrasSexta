@@ -10,8 +10,8 @@ import java.util.List;
 // implementa a lógica que vai decidir de onde pegar os dados
 public class WordRepository {
   // criando instâncias das variáveis
-  private WordDao mWordDao;
-  private LiveData<List<Word>> mAllWords;
+  private final WordDao mWordDao;
+  private final LiveData<List<Word>> mAllWords;
 
   // acessar no background a instância da base de dados passando o contexto da aplicação
   public WordRepository(Application application){

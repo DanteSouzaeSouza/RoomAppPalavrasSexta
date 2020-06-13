@@ -30,7 +30,7 @@ public abstract class WordRoomDatabase extends RoomDatabase {
 
 
   //~Esse método adiciona automaticamente palavras ao banco de dados
-  private static RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
+  private static final RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
     @Override
     public void onOpen(@NonNull SupportSQLiteDatabase db) {
       super.onOpen(db);

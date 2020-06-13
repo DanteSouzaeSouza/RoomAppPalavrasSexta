@@ -15,10 +15,10 @@ public class Word {
   @PrimaryKey // chave primária
   @NonNull // não aceita valores nulos
   @ColumnInfo(name = "word") // informando o nome da coluna que vai receber esse dado
-  private String mWord;
+  private final String mWord;
 
   // método construtor
-  public Word(String mWord) {
+  public Word(@NonNull String mWord) {
     this.mWord = mWord;
   }
 

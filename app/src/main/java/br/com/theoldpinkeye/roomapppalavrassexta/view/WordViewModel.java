@@ -12,9 +12,9 @@ import java.util.List;
 public class WordViewModel extends AndroidViewModel {
 
   // Linkou a classe com o repositório adicionando uma variável para recebê-lo
-  private WordRepository mRepository;
+  private final WordRepository mRepository;
 
-  private LiveData<List<Word>> mAllWords;
+  private final LiveData<List<Word>> mAllWords;
 
   // o construtor dessa classe pega a Application e herda os métodos do AndroidViewModel
   public WordViewModel(Application application) {
